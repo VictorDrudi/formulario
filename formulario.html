@@ -8,15 +8,15 @@
  </head>
 
  <body>
-    <h1 style="position: absolute; text-align: center; width: 100%;"> Preencha o formulário</h1> 
-  
-<form style="position: absolute; left: 388px; width: 600px; margin-top: 82px;" action="Script_do_Formulario.php" method="post">
+    <h1 style="position: absolute; text-align: left; width: 100%;"> Cadastro de Clientes</h1> 
+    <form style="position: absolute; left: 388px; width: 600px; margin-top: 82px;" action="Script_do_Formulario.php" method="post">
 
 <!-- DADOS PESSOAIS-->
-<fieldset>
+<fieldset style="width: 118%;">
 
  <legend>Dados Pessoais</legend>
- <table cellspacing="10">
+ <table style="margin-left: 160px;" cellspacing="10">
+    <img style="width: 25%;position: absolute;" src="_imagens/pessoais.png">
   <tr>
    <td>
     <label for="nome">Nome: </label>
@@ -24,31 +24,24 @@
    <td align="left">
     <input type="text" name="email">
    </td>
-   <td>
-    <label for="sobrenome">Sobrenome: </label>
-   </td>
-   <td align="left">
-    <input type="text" name="sobrenome">
-   </td>
   </tr>
   <tr>
    <td>
     <label>Nascimento: </label>
    </td>
    <td align="left">
-    <input type="text" name="dia" size="2" maxlength="2" value="dd"> 
-   <input type="text" name="mes" size="2" maxlength="2" value="mm"> 
-   <input type="text" name="ano" size="4" maxlength="4" value="aaaa">
+    <input type="text/number" class="form-control" placeholder="Ex.: dd/mm/aaaa" data-mask="00/00/0000" maxlength="10" autocomplete="off">
    </td>
   </tr>
   <tr>
-   <td>
-    <label for="rg">RG: </label>
-   </td>
-   <td align="left">
-    <input type="text" name="rg" size="13" maxlength="13"> 
-   </td>
-  </tr>
+    <td>
+        <label>Sexo</label>
+    </td>
+    <td>
+        <input type="radio" name="tSexo" id="cFem"/><label for="cFem">Feminino</label>  
+        <input type="radio" name="tSexo" id="cMasc" checked/><label for="cMasc">Masculino</label><br/>
+    </td>
+   </tr>
   <tr>
    <td>
     <label>CPF:</label>
@@ -57,29 +50,77 @@
     <input type="text" name="cpf" size="9" maxlength="9"> - <input type="text" name="cpf2" size="2" maxlength="2">
    </td>
   </tr>
+
  </table>
 </fieldset>
-
 <br />
+<!-- CONTATO -->
+<fieldset style="width: 118%;">
+    <legend>Contato</legend>
+        <table style="margin-left: 160px;" cellspacing="10">
+            <img style="width: 25%;position: absolute;" src="_imagens/carta.png">
+            <tr>
+                <td>
+                    <label for="email">E-mail: </label>
+                </td>
+                <td align="left">
+                    <input type="text" name="email">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="telefone">Telefone: </label>
+                </td>
+                <td align="left">
+                    <input type="text" class="form-control phone-ddd-mask" placeholder="Ex.: (00) 0000-0000">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="celular">Celular: </label>
+                </td>
+                <td align="left">
+                    <input type="text" class="form-control cel-sp-mask" placeholder="Ex.: (00) 00000-0000">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="skype">Skype: </label>
+                </td>
+                <td align="left">
+                    <input type="text" class="form-control cep-mask">
+                </td>
+            </tr>
+        </table>
+       </fieldset>
+       <br />
 <!-- ENDEREÇO -->
 <fieldset>
- <legend>Dados de Endereço</legend>
- <table cellspacing="10">
-
+ <legend>Endereço</legend>
+ <table style="margin-left: 160px;" cellspacing="10">
+     <img style="width: 25%;position: absolute;" src="_imagens/casa.png">
   <tr>
    <td>
-    <label for="rua">Rua:</label>
+    <label for="logradouro">Logradouro:</label>
    </td>
    <td align="left">
     <input type="text" name="rua">
    </td>
-   <td>
-    <label for="numero">Numero:</label>
-   </td>
-   <td align="left">
-    <input type="text" name="numero" size="4">
-   </td>
   </tr>
+    <tr>
+        <td>
+            <label for="numero">Número:</label>
+        </td>
+        <td align="left">
+            <input type="text" name="numero" size="6">
+        </td>
+        <td>
+            <label for="cep">CEP: </label>
+        </td>
+        <td align="left">
+            <input type="text" name="cep" size="5" maxlength="5"> - <input type="text" name="cep2" size="3" maxlength="3">
+        </td>
+    </tr>
   <tr>
    <td>
     <label for="bairro">Bairro: </label>
@@ -87,6 +128,12 @@
    <td align="left">
     <input type="text" name="bairro">
    </td>
+   <td>
+        <label for="cidade">Cidade: </label>
+   </td>
+   <td align="left">
+        <input type="text" name="cidade">
+    </td>
   </tr>
   <tr>
    <td>
@@ -94,106 +141,49 @@
    </td>
    <td align="left">
     <select name="estado"> 
-    <option value="ac">Acre</option> 
-    <option value="al">Alagoas</option> 
-    <option value="am">Amazonas</option> 
-    <option value="ap">Amapá</option> 
-    <option value="ba">Bahia</option> 
-    <option value="ce">Ceará</option> 
-    <option value="df">Distrito Federal</option> 
-    <option value="es">Espírito Santo</option> 
-    <option value="go">Goiás</option> 
-    <option value="ma">Maranhão</option> 
-    <option value="mt">Mato Grosso</option> 
-    <option value="ms">Mato Grosso do Sul</option> 
-    <option value="mg">Minas Gerais</option> 
-    <option value="pa">Pará</option> 
-    <option value="pb">Paraíba</option> 
-    <option value="pr">Paraná</option> 
-    <option value="pe">Pernambuco</option> 
-    <option value="pi">Piauí</option> 
-    <option value="rj">Rio de Janeiro</option> 
-    <option value="rn">Rio Grande do Norte</option> 
-    <option value="ro">Rondônia</option> 
-    <option value="rs">Rio Grande do Sul</option> 
-    <option value="rr">Roraima</option> 
-    <option value="sc">Santa Catarina</option> 
-    <option value="se">Sergipe</option> 
-    <option value="sp">São Paulo</option> 
-    <option value="to">Tocantins</option> 
+    <option value="ac">AC</option> 
+    <option value="al">AL</option> 
+    <option value="am">AM</option> 
+    <option value="ap">AP</option> 
+    <option value="ba">BA</option> 
+    <option value="ce">CE</option> 
+    <option value="df">DF</option> 
+    <option value="es">ES</option> 
+    <option value="go">GO</option> 
+    <option value="ma">MA</option> 
+    <option value="mt">MT</option> 
+    <option value="ms">MS</option> 
+    <option value="mg">MG</option> 
+    <option value="pa">PA</option> 
+    <option value="pb">PB</option> 
+    <option value="pr">PR</option> 
+    <option value="pe">PE</option> 
+    <option value="pi">PI</option> 
+    <option value="rj">RJ</option> 
+    <option value="rn">RN</option> 
+    <option value="ro">RO</option> 
+    <option value="rs">RS</option> 
+    <option value="rr">RR</option> 
+    <option value="sc">SC</option> 
+    <option value="se">SE</option> 
+    <option value="sp">SP</option> 
+    <option value="to">TO</option> 
    </select>
    </td>
   </tr>
-  <tr>
-   <td>
-    <label for="cidade">Cidade: </label>
-   </td>
-   <td align="left">
-    <input type="text" name="cidade">
-   </td>
-  </tr>
-  <tr>
-   <td>
-    <label for="cep">CEP: </label>
-   </td>
-   <td align="left">
-    <input type="text" name="cep" size="5" maxlength="5"> - <input type="text" name="cep2" size="3" maxlength="3">
-   </td>
-  </tr>
+<tr>
+    <td>
+        <label for="complemento">Complemento: </label>
+    </td>
+    <td align="left">
+        <input type="text" class="form-control cep-mask">
+    </td>
+</tr>
  </table>
 </fieldset>
 <br />
-
-<!-- DADOS DE LOGIN -->
-<fieldset>
- <legend>Dados de login</legend>
- <table cellspacing="10">
-  <tr>
-   <td>
-    <label for="email">E-mail: </label>
-   </td>
-   <td align="left">
-    <input type="text" name="email">
-   </td>
-  </tr>
-  <tr>
-   <td>
-    <label for="imagem">Imagem de perfil:</label>
-   </td>
-   <td>
-    <input type="file" name="imagem" >
-
-   </td>
-  </tr>
-  <tr>
-   <td>
-    <label for="login">Login de usuário: </label>
-   </td>
-   <td align="left">
-    <input type="text" name="login">
-   </td>
-  </tr>
-  <tr>
-   <td>
-    <label for="pass">Senha: </label>
-   </td>
-   <td align="left">
-    <input type="password" name="pass">
-   </td>
-  </tr>
-  <tr>
-   <td>
-    <label for="passconfirm">Confirme a senha: </label>
-   </td>
-   <td align="left">
-    <input type="password" name="passconfirm">
-   </td>
-  </tr>
- </table>
-</fieldset>
-<br />
-<input style="position: absolute; left: 230px;" type="submit">
-<input style="position: absolute; left: 300px;" type="reset" value="Limpar">
+    <input type="submit" href="#">
+    <input type="reset">
 </form>
 
  </body>
